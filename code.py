@@ -12,21 +12,21 @@ delay = pd.read_excel('delays.xlsx')
 # delay['FLT_DATE'] = pd.to_datetime(delay['FLT_DATE'], format = '%Y%m%d') -> to datetime
 # delay = delay[(delay.APT_ICAO == "EHAM")] -> only EHAM 
 # delayreason = delayreason.rename(columns = {'DLY_APT_ARR_A_1':'Disruptions',
-                                          'DLY_APT_ARR_C_1':'Capacity (ATC)',
-                                         'DLY_APT_ARR_D_1': 'Weather',
-                                         'DLY_APT_ARR_E_1':'Equipment',
-                                         'DLY_APT_ARR_G_1':'Capacity',
-                                         'DLY_APT_ARR_I_1':'Disruptions',
-                                         'DLY_APT_ARR_M_1':'Capacity',
-                                         'DLY_APT_ARR_N_1':'Disruptions',
-                                         'DLY_APT_ARR_O_1':'Disruptions',
-                                         'DLY_APT_ARR_P_1':'Events',
-                                         'DLY_APT_ARR_R_1':'Capacity',
-                                         'DLY_APT_ARR_S_1':'Staffing',
-                                         'DLY_APT_ARR_T_1':'Equipment (ATC)',
-                                         'DLY_APT_ARR_V_1':'Capacity',
-                                         'DLY_APT_ARR_W_1':'Weather',
-                                         'DLY_APT_ARR_NA_1':'Disruptions'}) 
+                                          #'DLY_APT_ARR_C_1':'Capacity (ATC)',
+                                         #'DLY_APT_ARR_D_1': 'Weather',
+                                         #'DLY_APT_ARR_E_1':'Equipment',
+                                         #'DLY_APT_ARR_G_1':'Capacity',
+                                         #'DLY_APT_ARR_I_1':'Disruptions',
+                                         #'DLY_APT_ARR_M_1':'Capacity',
+                                         #'DLY_APT_ARR_N_1':'Disruptions',
+                                         #'DLY_APT_ARR_O_1':'Disruptions',
+                                         #'DLY_APT_ARR_P_1':'Events',
+                                         #'DLY_APT_ARR_R_1':'Capacity',
+                                         #'DLY_APT_ARR_S_1':'Staffing',
+                                         #'DLY_APT_ARR_T_1':'Equipment (ATC)',
+                                         #'DLY_APT_ARR_V_1':'Capacity',
+                                         #'DLY_APT_ARR_W_1':'Weather',
+                                         #'DLY_APT_ARR_NA_1':'Disruptions'}) 
 # delayreason = delayreason.drop(['YEAR','MONTH_NUM','MONTH_MON','APT_ICAO','APT_NAME','STATE_NAME','FLT_ARR_1','DLY_APT_ARR_1','FLT_ARR_1_DLY','FLT_ARR_1_DLY_15','ATFM_VERSION','Pivot Label'],1)
 
 #set to datetime
