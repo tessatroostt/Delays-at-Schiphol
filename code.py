@@ -6,17 +6,12 @@ import streamlit as st
 
 # read in files
 weerdata = pd.read_excel('weerdata.xlsx')
-delay = pd.read_excel('Airport_Arrival_ATFM_Delay (2).xlsx', sheet_name = 'DATA')
+delay = pd.read_excel('delays.xlsx')
 
-#set to datetime
-weerdata['YYYYMMDD'] = pd.to_datetime(weerdata['YYYYMMDD'],format='%Y%m%d')
-delay['FLT_DATE'] = pd.to_datetime(delay['FLT_DATE'], format = '%Y%m%d')
-
-# delay only eham
-delay = delay[(delay.APT_ICAO == "EHAM")]
-
-#delay reason 2019-2021
-delayreason = delayreason.rename(columns = {'DLY_APT_ARR_A_1':'Disruptions',
+#delay file is exported from notebook after cleaning etc because original file is too big to put into github, cleaning steps are down below:
+# delay['FLT_DATE'] = pd.to_datetime(delay['FLT_DATE'], format = '%Y%m%d') -> to datetime
+# delay = delay[(delay.APT_ICAO == "EHAM")] -> only EHAM 
+# delayreason = delayreason.rename(columns = {'DLY_APT_ARR_A_1':'Disruptions',
                                           'DLY_APT_ARR_C_1':'Capacity (ATC)',
                                          'DLY_APT_ARR_D_1': 'Weather',
                                          'DLY_APT_ARR_E_1':'Equipment',
@@ -31,8 +26,14 @@ delayreason = delayreason.rename(columns = {'DLY_APT_ARR_A_1':'Disruptions',
                                          'DLY_APT_ARR_T_1':'Equipment (ATC)',
                                          'DLY_APT_ARR_V_1':'Capacity',
                                          'DLY_APT_ARR_W_1':'Weather',
-                                         'DLY_APT_ARR_NA_1':'Disruptions'})
-delayreason = delayreason.drop(['YEAR','MONTH_NUM','MONTH_MON','APT_ICAO','APT_NAME','STATE_NAME','FLT_ARR_1','DLY_APT_ARR_1','FLT_ARR_1_DLY','FLT_ARR_1_DLY_15','ATFM_VERSION','Pivot Label'],1)
+                                         'DLY_APT_ARR_NA_1':'Disruptions'}) 
+# delayreason = delayreason.drop(['YEAR','MONTH_NUM','MONTH_MON','APT_ICAO','APT_NAME','STATE_NAME','FLT_ARR_1','DLY_APT_ARR_1','FLT_ARR_1_DLY','FLT_ARR_1_DLY_15','ATFM_VERSION','Pivot Label'],1)
+
+#set to datetime
+weerdata['YYYYMMDD'] = pd.to_datetime(weerdata['YYYYMMDD'],format='%Y%m%d')
+
+
+# delay reason 2018-2021
 delayyears = delayreason[(delayreason['FLT_DATE'] > '2018-01-01') & (delayreason['FLT_DATE'] <= '2021-12-31')]
 delayyears = pd.melt(delayyears, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
