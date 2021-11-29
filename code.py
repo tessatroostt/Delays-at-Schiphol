@@ -56,16 +56,16 @@ delay2021 = pd.melt(delay2021, id_vars=['FLT_DATE'],var_name= 'reasons',value_na
 barplot_opties = st.selectbox('Choose a year:', ['2018-2021','2018','2019','2020','2021'])
 if barplot_opties == '2018-2021':
   fig = px.histogram(delayyears, x="reasons", y = 'disruption').update_layout(title = 'Reasons of delays Schiphol Aiport Amsterdam 2018-2021 ', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-    st.write(fig)
+  st.write(fig)
 if barplot_opties == '2018':
   fig = px.histogram(delay2018, x="reasons", y = 'disruption').update_layout(title = 'Reasons of delays Schiphol Aiport Amsterdam 2018', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-    st.write(fig)
+  st.write(fig)
 if barplot_opties == '2019':
   fig = px.histogram(delay2019, x="reasons", y = 'disruption').update_layout(title = 'Reasons of delays Schiphol Aiport Amsterdam 2019', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-    st.write(fig)
+  st.write(fig)
 if barplot_opties == '2020':
   fig = px.histogram(delay2020, x="reasons", y = 'disruption').update_layout(title = 'Reasons of delays Schiphol Aiport Amsterdam 2020', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-    st.write(fig)
+  st.write(fig)
 if barplot_opties == '2021':
   fig = px.histogram(delay2021, x="reasons", y = 'disruption').update_layout(title = 'Reasons of delays Schiphol Aiport Amsterdam 2021', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-    st.write(fig)
+  st.write(fig)
