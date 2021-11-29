@@ -34,23 +34,23 @@ weerdata['YYYYMMDD'] = pd.to_datetime(weerdata['YYYYMMDD'],format='%Y%m%d')
 
 
 # delay reason 2018-2021
-delayyears = delayreason[(delayreason['FLT_DATE'] > '2018-01-01') & (delayreason['FLT_DATE'] <= '2021-12-31')]
+delayyears = delay[(delay['FLT_DATE'] > '2018-01-01') & (delay['FLT_DATE'] <= '2021-12-31')]
 delayyears = pd.melt(delayyears, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 #delay reason 2018
-delay2018 = delayreason[(delayreason['FLT_DATE'] > '2018-01-01') & (delayreason['FLT_DATE'] <= '2018-12-31')]
+delay2018 = delay[(delay['FLT_DATE'] > '2018-01-01') & (delay['FLT_DATE'] <= '2018-12-31')]
 delay2018 = pd.melt(delay2018, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 #delay reason 2019
-delay2019 = delayreason[(delayreason['FLT_DATE'] > '2019-01-01') & (delayreason['FLT_DATE'] <= '2019-12-31')]
+delay2019 = delay[(delay['FLT_DATE'] > '2019-01-01') & (delay['FLT_DATE'] <= '2019-12-31')]
 delay2019 = pd.melt(delay2019, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 #delay reason 2020
-delay2020 = delayreason[(delayreason['FLT_DATE'] > '2020-01-01') & (delayreason['FLT_DATE'] <= '2020-12-31')]
+delay2020 = delay[(delay['FLT_DATE'] > '2020-01-01') & (delay['FLT_DATE'] <= '2020-12-31')]
 delay2020 = pd.melt(delay2020, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 #delay reason 2021
-delay2021 = delayreason[(delayreason['FLT_DATE'] > '2021-01-01') & (delayreason['FLT_DATE'] <= '2021-12-31')]
+delay2021 = delay[(delay['FLT_DATE'] > '2021-01-01') & (delay['FLT_DATE'] <= '2021-12-31')]
 delay2021 = pd.melt(delay2021, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 # barplots with different year
