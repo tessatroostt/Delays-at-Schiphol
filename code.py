@@ -37,7 +37,6 @@ delay = pd.read_excel('delays.xlsx')
 #set to datetime
 weerdata['YYYYMMDD'] = pd.to_datetime(weerdata['YYYYMMDD'],format='%Y%m%d')
 
-
 # delay reason 2018-2021
 delayyears = delay[(delay['FLT_DATE'] > '2018-01-01') & (delay['FLT_DATE'] <= '2021-12-31')]
 delayyears = pd.melt(delayyears, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
@@ -83,3 +82,6 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
   if barplot_opties == '2021':
     fig = px.histogram(delay2021, x="reasons", y = 'disruption').update_layout(title = 'Reasons of delay Schiphol Aiport Amsterdam 2021', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
     st.write(fig)
+    
+  #fill in na values in delay dataset with 0 to make lineplot
+  delayna = delay.fillna(0)
