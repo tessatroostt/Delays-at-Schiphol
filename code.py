@@ -28,6 +28,11 @@ delay = pd.read_excel('delays.xlsx')
                                          #'DLY_APT_ARR_W_1':'Weather',
                                          #'DLY_APT_ARR_NA_1':'Disruptions'}) 
 # delayreason = delayreason.drop(['YEAR','MONTH_NUM','MONTH_MON','APT_ICAO','APT_NAME','STATE_NAME','FLT_ARR_1','DLY_APT_ARR_1','FLT_ARR_1_DLY','FLT_ARR_1_DLY_15','ATFM_VERSION','Pivot Label'],1)
+# delay['Disruptions sum'] = delay['Disruptions']+delay['Disruptions.1'] + delay['Disruptions.2'] + delay['Disruptions.3']+ delay['Disruptions.4'] -> create one column for all disruption values
+# delay['Capacity sum'] = delay['Capacity'] + delay['Capacity.1'] + delay['Capacity.2'] + delay['Capacity.3'] -> create one column for all capacity values
+# delay['Weather sum'] = delay['Weather'] + delay['Weather.1'] -> create one column for all weather values
+# delay = delay.drop(['Disruptions','Disruptions.1','Disruptions.2','Disruptions.3','Disruptions.4','Capacity','Capacity.1','Capacity.2','Capacity.3','Weather','Weather.1'],1) -> drop previous disruption etc columns
+# delay.rename(columns = {'Disruptions sum':'Disruptions','Capacity sum':'Capacity','Weather sum':'Weather'}, inplace = True) -> rename columns
 
 #set to datetime
 weerdata['YYYYMMDD'] = pd.to_datetime(weerdata['YYYYMMDD'],format='%Y%m%d')
