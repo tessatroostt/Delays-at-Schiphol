@@ -4,6 +4,16 @@ import plotly as plt
 import plotly.express as px
 import streamlit as st
 
+# Page config
+st.set_page_config(
+  page_title='Delays at Schiphol Airport',
+  menu_items={
+    'Get Help': None,
+    'Report a bug': None
+  }
+)
+
+
 # read in files
 weerdata = pd.read_excel('weerdata.xlsx')
 delay = pd.read_excel('delays.xlsx')
