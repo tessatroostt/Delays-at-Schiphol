@@ -75,7 +75,7 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
   st.markdown("<h3 style='text-align: center; color: black;'>Reasons of delay at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
   
-  col1, col2 = st.columns(2)
+  col1, col2 = st.columns(2,1)
   
   # barplots with different year
   with col1:
@@ -102,6 +102,9 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
     - Capacity ATC
     - Events
     - Staffing
+    - Disruptions (ATC)
+      - Industrial Action
+      - Equipment
     - Disruptions
       - Accident/Incident
       - Equipment (non ATC)
