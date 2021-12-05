@@ -116,6 +116,7 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
     - Weather
       - De-icing
       - Weather
+      """)
     
   #fill in na values in delay dataset with 0 to make lineplot
   delayna = delay.fillna(0)
