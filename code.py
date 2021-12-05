@@ -114,3 +114,6 @@ if sidebar_keuze == 'Delays at Schiphol':
     
   #fill in na values in delay dataset with 0 to make lineplot
   delayna = delay.fillna(0)
+  
+  fig = px.line(delay2018, x="FLT_DATE", y="Weather", title='Weather delays over the years')
+  st.write(fig)
