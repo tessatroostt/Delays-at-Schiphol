@@ -13,6 +13,9 @@ st.set_page_config(
   }
 )
 
+@st.cache
+def createDataFrame():
+  # Fetch csv files
 
 # read in files
 weerdata = pd.read_excel('weerdata.xlsx')
@@ -68,11 +71,11 @@ delay2021 = delay[(delay['FLT_DATE'] > '2021-01-01') & (delay['FLT_DATE'] <= '20
 delay2021 = pd.melt(delay2021, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 with st.sidebar:
-  sidebar_keuze= st.radio('Chapters:', ['Reasons of delay at Schiphol','Sources'])
+  sidebar_keuze= st.radio('Chapters:', ['Delays at Schiphol','Sources'])
   
-if sidebar_keuze == 'Reasons of delay at Schiphol':
+if sidebar_keuze == 'Delays at Schiphol':
   st.markdown('***')
-  st.markdown("<h3 style='text-align: center; color: black;'>Reasons of delay at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
+  st.markdown("<h3 style='text-align: center; color: black;'>Delays at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
   
   col1, col2 = st.columns(2)
