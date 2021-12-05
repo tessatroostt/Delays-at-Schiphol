@@ -13,7 +13,6 @@ st.set_page_config(
   }
 )
 
-@st.cache
 
 # read in files
 weerdata = pd.read_excel('weerdata.xlsx')
