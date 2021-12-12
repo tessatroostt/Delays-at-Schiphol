@@ -46,7 +46,7 @@ delay = getAllDetails()
 # delay.rename(columns = {'Disruptions sum':'Disruptions','Capacity sum':'Capacity','Weather sum':'Weather'}, inplace = True) -> rename columns
 
 #set to datetime
-weerdata['YYYYMMDD'] = pd.to_datetime(weerdata['YYYYMMDD'],format='%Y%m%d')
+weerdata['Date'] = pd.to_datetime(weerdata['Date'],format='%Y%m%d')
 
 # delay reason 2018-2021
 delayyears = delay[(delay['FLT_DATE'] > '2018-01-01') & (delay['FLT_DATE'] <= '2021-12-31')]
