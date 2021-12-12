@@ -136,3 +136,17 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   st.markdown('***')
   st.markdown("<h3 style='text-align: center; color: black;'>Weather analysis at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
+  
+  
+  
+  
+  
+if sidebar_keuze == 'Sources':
+  st.markdown('***')
+  st.markdown("<h3 style='text-align: center; color: black;'>Sources</h3>", unsafe_allow_html=True)
+  st.markdown('***')
+  
+  st.markdown("""
+  The following sources were used:
+  - https://ansperformance.eu/data/ (En-route IFR flights and ATFM delays)
+  - https://www.knmi.nl/nederland-nu/klimatologie/daggegevens
