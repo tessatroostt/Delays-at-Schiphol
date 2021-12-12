@@ -132,6 +132,9 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
   fig = px.line(delayyearsweather, x="FLT_DATE", y="Weather", title='Weather delays over the years').update_layout(title = 'Total weather delays at Schiphol Amsterdam 2018-2021', xaxis_title = 'Years', yaxis_title = 'Delay time????')
   st.write(fig)
   
+  x = st.slider('Years 2018-2021', 2018, 2019, 2020, 2021)
+  st.write('Year:', x)
+  
 if sidebar_keuze == 'Weather analysis at Schiphol':
   st.markdown('***')
   st.markdown("<h3 style='text-align: center; color: black;'>Weather analysis at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
