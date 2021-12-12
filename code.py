@@ -19,7 +19,7 @@ delay = getAllDetails()
 
 
 
-#delay file is exported from notebook after cleaning etc because original file is too big to put into github, cleaning steps are down below:
+# delay file is exported from notebook after cleaning etc because original file is too big to put into github, cleaning steps are down below:
 # delay['FLT_DATE'] = pd.to_datetime(delay['FLT_DATE'], format = '%Y%m%d') -> to datetime
 # delay = delay[(delay.APT_ICAO == "EHAM")] -> only EHAM 
 # delayreason = delayreason.rename(columns = {'DLY_APT_ARR_A_1':'Disruptions',
@@ -44,6 +44,10 @@ delay = getAllDetails()
 # delay['Weather sum'] = delay['Weather'] + delay['Weather.1'] -> create one column for all weather values
 # delay = delay.drop(['Disruptions','Disruptions.1','Disruptions.2','Disruptions.3','Disruptions.4','Disruptions.5','Capacity','Capacity.1','Capacity.2','Capacity.3','Weather','Weather.1'],1) -> drop previous disruption etc columns
 # delay.rename(columns = {'Disruptions sum':'Disruptions','Capacity sum':'Capacity','Weather sum':'Weather'}, inplace = True) -> rename columns
+
+#weather file is also exported from notebook after cleaning
+#weerdata = weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N','T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX','  UXH','   UN','  UNH',' EV24','# STN','   TX', ' RHXH'],1)
+#weerdata.rename(columns = {'YYYYMMDD':'Date','   FG':'Windspeed','   TG':'Temperature','   DR':'Prec. duration','   RH':'Precipation','   PG':'Pressure','  VVN':'Min. visibility','  VVX':'Max. visibility','   NG':'Clouds','   UG':'Humidity'}, inplace = True)
 
 #set to datetime
 weerdata['Date'] = pd.to_datetime(weerdata['Date'],format='%Y%m%d')
@@ -157,19 +161,17 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   st.markdown("<h3 style='text-align: center; color: black;'>Weather analysis at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
   
-  #drop unnecessary columns
-  #weerdata = weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N',
-                            #'T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX',
-                            #'  UXH','   UN','  UNH',' EV24','# STN','   TX', ' RHXH'],1)
-  #rename columns
-  #weerdata.rename(columns = {'YYYYMMDD':'Date','   FG':'Windspeed','   TG':'Temperature','   DR':'Prec. duration',
-                             #'   RH':'Precipation','   PG':'Pressure','  VVN':'Min. visibility','  VVX':'Max. visibility',
-                             #'   NG':'Clouds','   UG':'Humidity'}, inplace = True)
+  #change columns from object to integer
+  weerallyears["Precipation"] = weerallyears["Precipation"].astype(str).astype(int)
+  weerallyears["Min. visibility"] = weerallyears["Min. visibility"].astype(str).astype(int)
+  weerallyears["Max. visibility"] = weerallyears["Max. visibility"].astype(str).astype(int)
+  weerallyears["Humidity"] = weerallyears["Humidity"].astype(str).astype(int)
+  
   #select 2018-2021
   weerallyears = weerdata[(weerdata['Date'] > '2018-01-01') & (weerdata['Date'] <= '2021-12-31')]
   
   #create plot
-  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Minimum visibility','Maximum visibility','Clouds','Humidity'])
+  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Minimum visibility','Maximum visibility','Humidity'])
   if linechart_opties == 'Windspeed':
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Windspeed'],mode='lines'))
@@ -209,15 +211,6 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   if linechart_opties == 'Maximum visibility':
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Max. visibility'],mode='lines'))
-    fig3.update_layout(title_text="Time series with range slider and selectors")
-    fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-    st.write(fig3)
-  if linechart_opties == 'Clouds':
-    fig3 = go.Figure()
-    fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Clouds'],mode='lines'))
     fig3.update_layout(title_text="Time series with range slider and selectors")
     fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
                                                                                                       dict(count=3,label="3m",step="month",stepmode="backward"),
