@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 @st.cache(allow_output_mutation=True)
 def createDataFrame():
   weerdata = pd.read_excel('weather.xlsx')
-  return weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N', 'T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX', '  UXH','   UN','  UNH',' EV24'],1)
+  return weerdata 
 
 def getAllDetails():
   delay = pd.read_excel('delays.xlsx')
