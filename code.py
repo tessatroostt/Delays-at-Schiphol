@@ -133,6 +133,17 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
   fig = px.line(delayyearsweather, x="FLT_DATE", y="Weather", title='Weather delays over the years').update_layout(title = 'Total weather delays at Schiphol Amsterdam 2018-2021', xaxis_title = 'Years', yaxis_title = 'Delay time????')
   st.write(fig)
   
+  fig2 = go.Figure()
+  fig2.add_trace(go.Scatter(x=delayyears['FLT_DATE'], y=delayyears['Weather'],text= delayyears['Weather'],name = 'Weahter',mode='lines'))
+  fig2.update_layout(title_text="Time series with range slider and selectors")
+  fig2.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(
+    buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+                  dict(count=3,label="3m",step="month",stepmode="backward"),
+                  dict(count=6,label="6m",step="month",stepmode="backward"),               
+                  dict(step="all")])),
+                                rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
+  st.write(fig2)
+  
 
   
 if sidebar_keuze == 'Weather analysis at Schiphol':
