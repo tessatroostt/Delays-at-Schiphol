@@ -161,12 +161,12 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   
   #drop unnecessary columns
   #weerdata = weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N',
-                            'T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX',
-                            '  UXH','   UN','  UNH',' EV24','# STN','   TX', ' RHXH'],1)
+                            #'T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX',
+                            #'  UXH','   UN','  UNH',' EV24','# STN','   TX', ' RHXH'],1)
   #rename columns
   #weerdata.rename(columns = {'YYYYMMDD':'Date','   FG':'Windspeed','   TG':'Temperature','   DR':'Prec. duration',
-                             '   RH':'Precipation','   PG':'Pressure','  VVN':'Min. visibility','  VVX':'Max. visibility',
-                             '   NG':'Clouds','   UG':'Humidity'}, inplace = True)
+                             #'   RH':'Precipation','   PG':'Pressure','  VVN':'Min. visibility','  VVX':'Max. visibility',
+                             #'   NG':'Clouds','   UG':'Humidity'}, inplace = True)
   #select 2018-2021
   weerallyears = weerdata[(weerdata['Date'] > '2018-01-01') & (weerdata['Date'] <= '2021-12-31')]
   
