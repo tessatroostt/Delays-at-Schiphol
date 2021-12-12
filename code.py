@@ -13,7 +13,7 @@ def getAllDetails():
   delay = pd.read_excel('delays.xlsx')
   return delay
 
-weer = createDataFrame()
+weerdata = createDataFrame()
 delay = getAllDetails()
 
 # read in files
