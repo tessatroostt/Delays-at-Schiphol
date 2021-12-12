@@ -130,10 +130,6 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
   
   delayyearsweather = delayna[(delayna['FLT_DATE'] > '2018-01-01') & (delay['FLT_DATE'] <= '2021-12-31')]
   
-  fig = px.line(delayyearsweather, x="FLT_DATE", y="Weather", title='Weather delays over the years').update_layout(title = 'Total weather delays at Schiphol Amsterdam 2018-2021', xaxis_title = 'Years', yaxis_title = 'Delay time????')
-  st.write(fig)
-  
-  
   fig2 = go.Figure()
   fig2.add_trace(
     go.Scatter(x=delayyearsweather['FLT_DATE'], 
