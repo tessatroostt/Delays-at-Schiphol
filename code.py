@@ -148,18 +148,14 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
     rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
   st.write(fig2)
 
-
-  
-  
-  
-  
-  
-
   
 if sidebar_keuze == 'Weather analysis at Schiphol':
   st.markdown('***')
   st.markdown("<h3 style='text-align: center; color: black;'>Weather analysis at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
+  
+  #select 2018-2021
+  weerallyears = weerdata[(weerdata['Date'] > '2018-01-01') & (weerdata['Date'] <= '2021-12-31')]
   
   #change columns from object to integer
   weerallyears["Precipation"] = weerallyears["Precipation"].astype(str).astype(int)
@@ -167,8 +163,7 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   weerallyears["Max. visibility"] = weerallyears["Max. visibility"].astype(str).astype(int)
   weerallyears["Humidity"] = weerallyears["Humidity"].astype(str).astype(int)
   
-  #select 2018-2021
-  weerallyears = weerdata[(weerdata['Date'] > '2018-01-01') & (weerdata['Date'] <= '2021-12-31')]
+
   
   #create plot
   linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Minimum visibility','Maximum visibility','Humidity'])
