@@ -4,7 +4,7 @@ import plotly as plt
 import plotly.express as px
 import streamlit as st
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def createDataFrame():
   weerdata = pd.read_excel('weerdata.xlsx')
   return weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N', 'T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX', '  UXH','   UN','  UNH',' EV24'],1)
