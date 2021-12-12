@@ -18,7 +18,7 @@ weerdata = createDataFrame()
 delay = getAllDetails()
 
 # read in files
-# weerdata = pd.read_excel('weerdata.xlsx')
+# weerdata = pd.read_excel('weather.xlsx')
 # delay = pd.read_excel('delays.xlsx')
 
 #delay file is exported from notebook after cleaning etc because original file is too big to put into github, cleaning steps are down below:
@@ -160,11 +160,11 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   st.markdown('***')
   
   #drop unnecessary columns
-  weerdata = weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N',
+  #weerdata = weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N',
                             'T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX',
                             '  UXH','   UN','  UNH',' EV24','# STN','   TX', ' RHXH'],1)
   #rename columns
-  weerdata.rename(columns = {'YYYYMMDD':'Date','   FG':'Windspeed','   TG':'Temperature','   DR':'Prec. duration',
+  #weerdata.rename(columns = {'YYYYMMDD':'Date','   FG':'Windspeed','   TG':'Temperature','   DR':'Prec. duration',
                              '   RH':'Precipation','   PG':'Pressure','  VVN':'Min. visibility','  VVX':'Max. visibility',
                              '   NG':'Clouds','   UG':'Humidity'}, inplace = True)
   #select 2018-2021
