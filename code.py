@@ -3,6 +3,7 @@ import pandas as pd
 import plotly as plt
 import plotly.express as px
 import streamlit as st
+import plotly.graph_objects as go
 
 @st.cache(allow_output_mutation=True)
 def createDataFrame():
