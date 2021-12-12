@@ -4,10 +4,21 @@ import plotly as plt
 import plotly.express as px
 import streamlit as st
 
+@st.cache
+def createDataFrame():
+  weerdata = pd.read_excel('weerdata.xlsx')
+  return weerdata.drop(['DDVEC','FHVEC','  FHX',' FHXH','  FHN',' FHNH','  FXX',' FXXH','   TN','  TNH','  TXH',' T10N', 'T10NH','   SQ','   SP','    Q','  RHX','   PX','  PXH','   PN','  PNH',' VVNH',' VVXH','   UX', '  UXH','   UN','  UNH',' EV24'],1)
+
+def getAllDetails():
+  delay = pd.read_excel('delays.xlsx')
+  return delay
+
+weer = createDataFrame()
+delay = getAllDetails()
 
 # read in files
-weerdata = pd.read_excel('weerdata.xlsx')
-delay = pd.read_excel('delays.xlsx')
+# weerdata = pd.read_excel('weerdata.xlsx')
+# delay = pd.read_excel('delays.xlsx')
 
 #delay file is exported from notebook after cleaning etc because original file is too big to put into github, cleaning steps are down below:
 # delay['FLT_DATE'] = pd.to_datetime(delay['FLT_DATE'], format = '%Y%m%d') -> to datetime
