@@ -80,6 +80,15 @@ if sidebar_keuze == 'Flights vs Covid':
   st.markdown("<h3 style='text-align: center; color: black;'>Flights at Schiphol Airport 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
   
+  #import new files
+  flights = pd.read_excel('number of flights schiphol.xlsx')
+  total = pd.read_excel('total flights schiphol.xlsx')
+  
+  flights['Date'] = pd.to_datetime(flights['Date'], format = '%Y%m%d')
+  
+  fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam 2018-2021',
+             color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'})
+  st.write(fig)
   
   
 if sidebar_keuze == 'Reasons of delay at Schiphol':
