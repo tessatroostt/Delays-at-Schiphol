@@ -84,11 +84,22 @@ if sidebar_keuze == 'Flights vs Covid':
   flights = pd.read_excel('number of flights schiphol.xlsx')
   total = pd.read_excel('total flights schiphol.xlsx')
   
+  #to datetime
   flights['Date'] = pd.to_datetime(flights['Date'], format = '%Y%m%d')
+  total['Year'] = pd.to_datetime(total['Year'], format = '%Y')
+  
+  #total from wide to long
+  total = pd.melt(total, id_vars=['Year'],var_name= 'Region',value_name = 'Flights')
   
   fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam 2018-2021',
              color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(width = 1000)
   st.write(fig)
+  
+  fig = px.bar(total, x="Year", y="Flights", color = 'Region',barmode = 'group', color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'})
+  fig.update_layout(xaxis=dict(tickformat="%Y"), width = 800)
+  st.write(fig)
+
+
   
   
   
