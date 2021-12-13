@@ -91,7 +91,7 @@ if sidebar_keuze == 'Flights vs Covid':
   #total from wide to long
   total = pd.melt(total, id_vars=['Year'],var_name= 'Region',value_name = 'Flights')
   
-  col1, col2 = st.columns(3)
+  col1, col2 = st.columns(2)
   
   with col1:
     fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam 2018-2021',
