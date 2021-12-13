@@ -87,7 +87,7 @@ if sidebar_keuze == 'Flights vs Covid':
   flights['Date'] = pd.to_datetime(flights['Date'], format = '%Y%m%d')
   
   fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam 2018-2021',
-             color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'})
+             color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(width = 1500)
   st.write(fig)
   
   
