@@ -168,7 +168,7 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
     go.Scatter(x=delayyearsweather['FLT_DATE'], 
                y=delayyearsweather['Weather'],
                mode='lines'))
-  fig2.update_traces(line_color='rgb(102, 197, 204)', selector=dict(type='scatter'))
+  fig2.update_traces(line_color='rgb(254, 136, 177)', selector=dict(type='scatter'))
   fig2.update_layout(title_text="Time series with range slider and selectors")
   fig2.update_layout(xaxis=dict(
     range=["2018-01-01", "2021-12-31"],
