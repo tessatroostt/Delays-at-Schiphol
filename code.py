@@ -73,7 +73,14 @@ delay2021 = delay[(delay['FLT_DATE'] > '2021-01-01') & (delay['FLT_DATE'] <= '20
 delay2021 = pd.melt(delay2021, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 with st.sidebar:
-  sidebar_keuze= st.radio('Chapters:', ['Reasons of delay at Schiphol','Weather analysis at Schiphol','Sources'])
+  sidebar_keuze= st.radio('Chapters:', ['Flights vs Covid','Reasons of delay at Schiphol','Weather analysis at Schiphol','Sources'])
+
+if sidebar_keuze == 'Flights vs Covid':
+  st.markdown('***')
+  st.markdown("<h3 style='text-align: center; color: black;'>Flights at Schiphol Airport 2018-2021</h3>", unsafe_allow_html=True)
+  st.markdown('***')
+  
+  
   
 if sidebar_keuze == 'Reasons of delay at Schiphol':
   st.markdown('***')
