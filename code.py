@@ -91,13 +91,16 @@ if sidebar_keuze == 'Flights vs Covid':
   #total from wide to long
   total = pd.melt(total, id_vars=['Year'],var_name= 'Region',value_name = 'Flights')
   
-  fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam 2018-2021',
-             color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(width = 1000)
-  st.write(fig)
+  col1, col2 = st.columns(2)
   
-  fig = px.bar(total, x="Year", y="Flights", color = 'Region',barmode = 'group', color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'})
-  fig.update_layout(xaxis=dict(tickformat="%Y"), width = 800)
-  st.write(fig)
+  with col1:
+    fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam 2018-2021',
+             color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(width = 1000)
+    st.write(fig)
+  
+  with col2:
+    fig = px.bar(total, x="Year", y="Flights", color = 'Region',barmode = 'group', color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(xaxis=dict(tickformat="%Y"), width = 600)
+    st.write(fig)
 
 
   
