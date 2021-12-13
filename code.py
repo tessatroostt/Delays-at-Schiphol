@@ -89,6 +89,7 @@ if sidebar_keuze == 'Flights vs Covid':
   fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam 2018-2021',
              color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'})
   st.write(fig)
+  st.plotly_chart(fig,height=1000, width = 1000)
   
   
 if sidebar_keuze == 'Reasons of delay at Schiphol':
