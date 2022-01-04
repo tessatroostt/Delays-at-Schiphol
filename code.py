@@ -201,7 +201,7 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
     fig4 = make_subplots(specs=[[{"secondary_y": True}]])
     fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
     fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Windspeed']),secondary_y=True)
-    fig4.update_layout(title_text="Weather delays vs. Windspeed")
+    fig4.update_layout(title_text="Weather delays vs. Windspeed", width = 1500)
     fig4.update_xaxes(title_text="Date")
     fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
     fig4.update_yaxes(title_text="Windspeed ", secondary_y=True)
