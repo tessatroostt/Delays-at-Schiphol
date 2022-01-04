@@ -157,11 +157,7 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
       - Weather
       """)
     
-    
-  #fill in na values in delay dataset with 0 to make lineplot
-  delayna = delay.fillna(0)
-  
-  delayyearsweather = delayna[(delayna['FLT_DATE'] > '2018-01-01') & (delay['FLT_DATE'] <= '2021-12-31')]
+
   
 
 
@@ -170,6 +166,12 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   st.markdown('***')
   st.markdown("<h3 style='text-align: center; color: black;'>Weather analysis at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
+  
+      
+  #fill in na values in delay dataset with 0 to make lineplot
+  delayna = delay.fillna(0)
+  
+  delayyearsweather = delayna[(delayna['FLT_DATE'] > '2018-01-01') & (delay['FLT_DATE'] <= '2021-12-31')]
   
   #select 2018-2021
   weerallyears = weerdata[(weerdata['Date'] > '2018-01-01') & (weerdata['Date'] <= '2021-12-31')]
