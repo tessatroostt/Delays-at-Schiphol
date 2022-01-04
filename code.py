@@ -191,14 +191,12 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   
   #change columns from object to integer
   weerallyears["Precipation"] = weerallyears["Precipation"].astype(str).astype(int)
-  weerallyears["Min. visibility"] = weerallyears["Min. visibility"].astype(str).astype(int)
   weerallyears["Max. visibility"] = weerallyears["Max. visibility"].astype(str).astype(int)
-  weerallyears["Humidity"] = weerallyears["Humidity"].astype(str).astype(int)
   
 
   
   #create plot
-  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Minimum visibility','Maximum visibility','Humidity'])
+  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
   if linechart_opties == 'Windspeed':
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Windspeed'],mode='lines'))
