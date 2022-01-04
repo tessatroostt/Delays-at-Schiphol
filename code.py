@@ -190,10 +190,10 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   weerallyears['Max. visibility'] = weerallyears['Max. visibility'] * 100
   
   # rename delay column name so we can merge with weerallyears
-  delay.rename(columns = {'FLT_DATE':'Date'}, inplace = True)
+  delayna.rename(columns = {'FLT_DATE':'Date'}, inplace = True)
   
   # merge weerallyears and delay
-  merged = weerallyears.merge(delay, on = 'Date')
+  merged = weerallyears.merge(delayna, on = 'Date')
   
   #create plot
   linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
