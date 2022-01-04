@@ -4,6 +4,7 @@ import plotly as plt
 import plotly.express as px
 import streamlit as st
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 @st.cache(allow_output_mutation=True)
 def createDataFrame():
