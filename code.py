@@ -229,16 +229,6 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
     st.write(fig3)
-  if linechart_opties == 'Minimum visibility':
-    fig3 = go.Figure()
-    fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Min. visibility'],mode='lines'))
-    fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
-    fig3.update_layout(title_text="Time series with range slider and selectors")
-    fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-    st.write(fig3)
   if linechart_opties == 'Maximum visibility':
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Max. visibility'],mode='lines'))
@@ -249,17 +239,7 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
     st.write(fig3)
-  if linechart_opties == 'Humidity':
-    fig3 = go.Figure()
-    fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Humidity'],mode='lines'))
-    fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
-    fig3.update_layout(title_text="Time series with range slider and selectors")
-    fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-    st.write(fig3)
-  
+   
   
   
   
