@@ -193,6 +193,14 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   weerallyears["Precipation"] = weerallyears["Precipation"].astype(str).astype(int)
   weerallyears["Max. visibility"] = weerallyears["Max. visibility"].astype(str).astype(int)
   
+  # divide temperature column by 10, because it is in 0.1 degrees celsius and precipation column as well (0.1 mm)
+  weerallyears["Temperature"] = weerallyears["Temperature"] / 10
+  weerallyears['Precipation'] = weerallyears['Precipation'] / 10
+  # divide windspeed column by 10 (it's 0.1 m/s) then multiply by 3.6 so we get km/h
+  weerallyears['Windspeed'] = weerallyears['Windspeed']/10 * 3.6
+  # multiply visibility by 100 (1 = 100m)
+  weerallyears['Max. visibility'] = weerallyears['Max. visibility'] * 100
+  
 
   
   #create plot
