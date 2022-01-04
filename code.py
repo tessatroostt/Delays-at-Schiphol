@@ -188,9 +188,7 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   # multiply visibility by 100 (1 = 100m)
   weerallyears['Max. visibility'] = weerallyears['Max. visibility'] * 100
   
-  col1, col2 = st.columns(2)
-  
-  with col1:
+
     #create plot
     linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
     if linechart_opties == 'Windspeed':
@@ -234,7 +232,7 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
       st.write(fig3)
    
-  with col2:
+  
     fig2 = go.Figure()
     fig2.add_trace(go.Scatter(x=delayyearsweather['FLT_DATE'], y=delayyearsweather['Weather'],mode='lines'))
     fig2.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
