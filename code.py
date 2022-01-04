@@ -188,60 +188,59 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   # multiply visibility by 100 (1 = 100m)
   weerallyears['Max. visibility'] = weerallyears['Max. visibility'] * 100
   
-
-    #create plot
-    linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
-    if linechart_opties == 'Windspeed':
-      fig3 = go.Figure()
-      fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Windspeed'],mode='lines'))
-      fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
-      fig3.update_layout(title_text="Time series with range slider and selectors")
-      fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+  #create plot
+  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
+  if linechart_opties == 'Windspeed':
+    fig3 = go.Figure()
+    fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Windspeed'],mode='lines'))
+    fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
+    fig3.update_layout(title_text="Time series with range slider and selectors")
+    fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
                                                                                                       dict(count=3,label="3m",step="month",stepmode="backward"),
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig3)
-    if linechart_opties == 'Temperature':
-      fig3 = go.Figure()
-      fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Temperature'],mode='lines'))
-      fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
-      fig3.update_layout(title_text="Time series with range slider and selectors")
-      fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+    st.write(fig3)
+  if linechart_opties == 'Temperature':
+    fig3 = go.Figure()
+    fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Temperature'],mode='lines'))
+    fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
+    fig3.update_layout(title_text="Time series with range slider and selectors")
+    fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
                                                                                                       dict(count=3,label="3m",step="month",stepmode="backward"),
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig3)
-    if linechart_opties == 'Precipation':
-      fig3 = go.Figure()
-      fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Precipation'],mode='lines'))
-      fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
-      fig3.update_layout(title_text="Time series with range slider and selectors")
-      fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+    st.write(fig3)
+  if linechart_opties == 'Precipation':
+    fig3 = go.Figure()
+    fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Precipation'],mode='lines'))
+    fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
+    fig3.update_layout(title_text="Time series with range slider and selectors")
+    fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
                                                                                                       dict(count=3,label="3m",step="month",stepmode="backward"),
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig3)
-    if linechart_opties == 'Maximum visibility':
-      fig3 = go.Figure()
-      fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Max. visibility'],mode='lines'))
-      fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
-      fig3.update_layout(title_text="Time series with range slider and selectors")
-      fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+    st.write(fig3)
+  if linechart_opties == 'Maximum visibility':
+    fig3 = go.Figure()
+    fig3.add_trace(go.Scatter(x=weerallyears['Date'], y=weerallyears['Max. visibility'],mode='lines'))
+    fig3.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
+    fig3.update_layout(title_text="Time series with range slider and selectors")
+    fig3.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
                                                                                                       dict(count=3,label="3m",step="month",stepmode="backward"),
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig3)
+    st.write(fig3)
    
   
-    fig2 = go.Figure()
-    fig2.add_trace(go.Scatter(x=delayyearsweather['FLT_DATE'], y=delayyearsweather['Weather'],mode='lines'))
-    fig2.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
-    fig2.update_layout(title_text="Time series with range slider and selectors")
-    fig2.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+  fig2 = go.Figure()
+  fig2.add_trace(go.Scatter(x=delayyearsweather['FLT_DATE'], y=delayyearsweather['Weather'],mode='lines'))
+  fig2.update_traces(line_color='rgb(158, 185,243)', selector=dict(type='scatter'))
+  fig2.update_layout(title_text="Time series with range slider and selectors")
+  fig2.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
                                                                                                       dict(count=3,label="3m",step="month",stepmode="backward"),
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-    st.write(fig2)
+  st.write(fig2)
   
   
   
