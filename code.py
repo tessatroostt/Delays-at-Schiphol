@@ -96,7 +96,7 @@ if sidebar_keuze == 'Flights vs Covid':
   
   with col1:
     fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Amount of flights at Schiphol Airport Amsterdam over the years 2018-2021',
-             color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(width = 800, yaxis_title = 'Number of flights', legend_title = 'Region' )
+             color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(width = 600, yaxis_title = 'Number of flights', legend_title = 'Region' )
     st.write(fig)
   
   with col2:
