@@ -191,70 +191,69 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
   # merge weerallyears and delay
   merged = weerallyears.merge(delayna, on = 'Date')
   
-  col1, col2 = st.columns(2)
-  
+
   #create plot
-  with col1:
-    linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
-    if linechart_opties == 'Windspeed':
-      fig4 = make_subplots(specs=[[{"secondary_y": True}]])
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Windspeed']),secondary_y=True)
-      fig4.update_layout(title_text="Weather delays vs. Windspeed", width = 1500, height = 700, showlegend = False)
-      fig4.update_xaxes(title_text="Date")
-      fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
-      fig4.update_yaxes(title_text="Windspeed in km/h ", secondary_y=True)
-      fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                        dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                        dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                        dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig4)
-    if linechart_opties == 'Temperature':
-      fig4 = make_subplots(specs=[[{"secondary_y": True}]])
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Temperature']),secondary_y=True)
-      fig4.update_layout(title_text="Weather delays vs. Temperature", width = 1500, height = 700, showlegend = False)
-      fig4.update_xaxes(title_text="Date")
-      fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
-      fig4.update_yaxes(title_text="Temperature in degrees Celsius ", secondary_y=True)
-      fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                        dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                        dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                        dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig4)
-    if linechart_opties == 'Precipation':
-      fig4 = make_subplots(specs=[[{"secondary_y": True}]])
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Precipation']),secondary_y=True)
-      fig4.update_layout(title_text="Weather delays vs. Precipation", width = 1500, height = 700, showlegend = False)
-      fig4.update_xaxes(title_text="Date")
-      fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
-      fig4.update_yaxes(title_text="Precipation in mm ", secondary_y=True)
-      fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                        dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                        dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                        dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig4)
-    if linechart_opties == 'Maximum visibility':
-      fig4 = make_subplots(specs=[[{"secondary_y": True}]])
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
-      fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Max. visibility']),secondary_y=True)
-      fig4.update_layout(title_text="Weather delays vs. maximum visibility", width = 1500, height = 700, showlegend = False)
-      fig4.update_xaxes(title_text="Date")
-      fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
-      fig4.update_yaxes(title_text="Maximum visibility in meters ", secondary_y=True)
-      fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                        dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                        dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                        dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-      st.write(fig4)
+
+  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
+  if linechart_opties == 'Windspeed':
+    fig4 = make_subplots(specs=[[{"secondary_y": True}]])
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Windspeed']),secondary_y=True)
+    fig4.update_layout(title_text="Weather delays vs. Windspeed", width = 1500, height = 700, showlegend = False)
+    fig4.update_xaxes(title_text="Date")
+    fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
+    fig4.update_yaxes(title_text="Windspeed in km/h ", secondary_y=True)
+    fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
+                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
+                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
+    st.write(fig4)
+  if linechart_opties == 'Temperature':
+    fig4 = make_subplots(specs=[[{"secondary_y": True}]])
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Temperature']),secondary_y=True)
+    fig4.update_layout(title_text="Weather delays vs. Temperature", width = 1500, height = 700, showlegend = False)
+    fig4.update_xaxes(title_text="Date")
+    fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
+    fig4.update_yaxes(title_text="Temperature in degrees Celsius ", secondary_y=True)
+    fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
+                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
+                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
+    st.write(fig4)
+  if linechart_opties == 'Precipation':
+    fig4 = make_subplots(specs=[[{"secondary_y": True}]])
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Precipation']),secondary_y=True)
+    fig4.update_layout(title_text="Weather delays vs. Precipation", width = 1500, height = 700, showlegend = False)
+    fig4.update_xaxes(title_text="Date")
+    fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
+    fig4.update_yaxes(title_text="Precipation in mm ", secondary_y=True)
+    fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
+                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
+                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
+    st.write(fig4)
+  if linechart_opties == 'Maximum visibility':
+    fig4 = make_subplots(specs=[[{"secondary_y": True}]])
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
+    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Max. visibility']),secondary_y=True)
+    fig4.update_layout(title_text="Weather delays vs. maximum visibility", width = 1500, height = 700, showlegend = False)
+    fig4.update_xaxes(title_text="Date")
+    fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
+    fig4.update_yaxes(title_text="Maximum visibility in meters ", secondary_y=True)
+    fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
+                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
+                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
+                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
+    st.write(fig4)
    
-    
-  with col2:
-    st.markdown("""
-    The blue line represents the delay in minutes
-    The red line represents the chosen variable
-    """)
+
+  st.markdown("""
+  The blue line represents the delay in minutes 
+  
+  The red line represents the chosen variable
+  """)
 
   
   
