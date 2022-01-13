@@ -74,34 +74,9 @@ delay2021 = delay[(delay['FLT_DATE'] > '2021-01-01') & (delay['FLT_DATE'] <= '20
 delay2021 = pd.melt(delay2021, id_vars=['FLT_DATE'],var_name= 'reasons',value_name = 'disruption')
 
 with st.sidebar:
-  sidebar_keuze= st.radio('Chapters:', ['Flights vs Covid','Reasons of delay at Schiphol','Weather analysis at Schiphol','Sources'])
+  sidebar_keuze= st.radio('Chapters:', ['Reasons of delay at Schiphol','Weather analysis at Schiphol','Sources'])
 
-if sidebar_keuze == 'Flights vs Covid':
-  st.markdown('***')
-  st.markdown("<h3 style='text-align: center; color: black;'>Number of flights at Schiphol Airport 2018-2021</h3>", unsafe_allow_html=True)
-  st.markdown('***')
-  
-  #import new files
-  flights = pd.read_excel('number of flights schiphol.xlsx')
-  total = pd.read_excel('total flights schiphol.xlsx')
-  
-  #to datetime
-  flights['Date'] = pd.to_datetime(flights['Date'], format = '%Y%m%d')
-  total['Year'] = pd.to_datetime(total['Year'], format = '%Y')
-  
-  #total from wide to long
-  total = pd.melt(total, id_vars=['Year'],var_name= 'Region',value_name = 'Flights')
-  
-  fig = px.line(flights, x="Date", y=['Europe', 'Intercontinental',"Total"], title='Daily flights at Schiphol Airport Amsterdam over the years 2018-2021',
-                color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(yaxis_title = 'Number of flights', legend_title = 'Region', width = 1000 )
-  st.write(fig)
-  
-  fig = px.bar(total, x="Year", y="Flights", color = 'Region',barmode = 'group', color_discrete_map = {'Europe': 'rgb(220, 176, 242)', 'Intercontinental': 'rgb(158, 185,243)', 'Total': 'rgb(254, 136, 177)'}).update_layout(xaxis=dict(tickformat="%Y"), title = 'Total flights at Schiphol Airport Amsterdam 2018-2021', yaxis_title = 'Amount of flights', width = 1000)
-  st.write(fig)
-
-
-  
-  
+ 
   
 if sidebar_keuze == 'Reasons of delay at Schiphol':
   st.markdown('***')
