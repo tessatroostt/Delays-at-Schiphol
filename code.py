@@ -225,9 +225,8 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
    
 
   st.markdown("""
-  The blue line represents the delay in minutes 
-  
-  The red line represents the chosen variable
+  - The blue line represents the delay in minutes 
+  - The red line represents the chosen variable
   """)
 
   
