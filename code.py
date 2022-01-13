@@ -242,5 +242,4 @@ if sidebar_keuze == 'Sources':
   The following sources were used:
   - https://ansperformance.eu/data/ (En-route IFR flights and ATFM delays)
   - https://www.knmi.nl/nederland-nu/klimatologie/daggegevens
-  - https://www.schiphol.nl/nl/schiphol-group/pagina/verkeer-en-vervoer-cijfers/ ( Maandelijkse Verkeer & Vervoer cijfers 1992 - heden)
   """)
