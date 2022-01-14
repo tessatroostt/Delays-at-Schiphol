@@ -209,19 +209,7 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
                                                                                                       dict(count=6,label="6m",step="month",stepmode="backward"),
                                                                                                       dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
     st.write(fig4)
-  if linechart_opties == 'Maximum visibility':
-    fig4 = make_subplots(specs=[[{"secondary_y": True}]])
-    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
-    fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Max. visibility']),secondary_y=True)
-    fig4.update_layout(title_text="Weather delays vs. maximum visibility at Schiphol Airport Amsterdam 2018-2021", width = 1500, height = 700, showlegend = False)
-    fig4.update_xaxes(title_text="Date")
-    fig4.update_yaxes(title_text="Delay in minutes", secondary_y=False)
-    fig4.update_yaxes(title_text="Maximum visibility in meters", secondary_y=True)
-    fig4.update_layout(xaxis=dict(range=["2018-01-01", "2021-12-31"],rangeselector=dict(buttons=list([dict(count=1,label="1m",step="month",stepmode="backward"),
-                                                                                                      dict(count=3,label="3m",step="month",stepmode="backward"),
-                                                                                                      dict(count=6,label="6m",step="month",stepmode="backward"),
-                                                                                                      dict(step="all")])),rangeslider=dict(range=["2018-01-01", "2021-12-31"],visible=True),type="date"))
-    st.write(fig4)
+  
    
 
   st.markdown("""
