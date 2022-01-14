@@ -169,7 +169,7 @@ if sidebar_keuze == 'Weather analysis at Schiphol':
 
   #create plot
 
-  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation','Maximum visibility'])
+  linechart_opties = st.selectbox('Choose variable:', ['Windspeed','Temperature','Precipation'])
   if linechart_opties == 'Windspeed':
     fig4 = make_subplots(specs=[[{"secondary_y": True}]])
     fig4.add_trace(go.Scatter(x=merged['Date'], y=merged['Weather']),secondary_y=False)
