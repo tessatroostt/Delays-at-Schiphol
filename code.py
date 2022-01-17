@@ -83,52 +83,28 @@ if sidebar_keuze == 'Reasons of delay at Schiphol':
   st.markdown("<h3 style='text-align: center; color: black;'>Reasons of delay at Schiphol Airport Amsterdam 2018-2021</h3>", unsafe_allow_html=True)
   st.markdown('***')
   
-  col1, col2 = st.columns(2)
+
   
   # barplots with different year
-  with col1:
-    barplot_opties = st.selectbox('Choose a year:', ['2018-2021','2018','2019','2020','2021'])
-    if barplot_opties == '2018-2021':
-      fig = px.histogram(delayyears, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2018-2021 ', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-      st.write(fig)
-    if barplot_opties == '2018':
-      fig = px.histogram(delay2018, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2018', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-      st.write(fig)
-    if barplot_opties == '2019':
-      fig = px.histogram(delay2019, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2019', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-      st.write(fig)
-    if barplot_opties == '2020':
-      fig = px.histogram(delay2020, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2020', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-      st.write(fig)
-    if barplot_opties == '2021':
-      fig = px.histogram(delay2021, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2021', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
-      st.write(fig)
+
+  barplot_opties = st.selectbox('Choose a year:', ['2018-2021','2018','2019','2020','2021'])
+  if barplot_opties == '2018-2021':
+    fig = px.histogram(delayyears, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2018-2021 ', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
+    st.write(fig)
+  if barplot_opties == '2018':
+    fig = px.histogram(delay2018, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2018', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
+    st.write(fig)
+  if barplot_opties == '2019':
+    fig = px.histogram(delay2019, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2019', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
+    st.write(fig)
+  if barplot_opties == '2020':
+    fig = px.histogram(delay2020, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2020', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
+    st.write(fig)
+  if barplot_opties == '2021':
+    fig = px.histogram(delay2021, x="reasons", y = 'disruption', color = 'reasons', color_discrete_sequence=px.colors.qualitative.Pastel).update_layout(showlegend=False, title = 'Reasons of delay Schiphol Aiport Amsterdam 2021', xaxis_title = 'Delay reasons', yaxis_title = 'Delay time????')
+    st.write(fig)
     
-  with col2:
-    st.markdown("""
-    The different delay reasons are categorized into 7 groups:
-    - Capacity ATC
-    - Events
-    - Staffing
-    - Disruptions (ATC)
-      - Industrial Action
-      - Equipment
-    - Disruptions
-      - Accident/Incident
-      - Equipment (non ATC)
-      - Industrial Action
-      - Other
-      - Not specified
-    - Capacity
-      - Aerodrome Capacity
-      - Airspace Management
-      - ATC Routeing
-      - Environmental Issues
-    - Weather
-      - De-icing
-      - Weather
-      """)
-    
+  
 
   
 
